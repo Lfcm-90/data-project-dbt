@@ -1,0 +1,29 @@
+
+version: 2
+
+models:
+  - name: schedule
+    description: "Modelo que armazena informações de agendamentos"
+    config:
+      materialized: table
+    columns:
+      - name: "id"
+        description: "Identificador único do agendamento"
+        tests:
+          - unique
+          - not_null
+      - name: "scheduled_time"
+        description: "Horário agendado para o evento"
+        tests:
+          - not_null
+      - name: description
+        description: "Descrição do agendamento"
+        tests:
+          - not_null
+      - name: "status"
+        description: "Status do agendamento"
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['pending', 'completed', 'canceled']
+          - not_null

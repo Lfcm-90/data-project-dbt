@@ -1,0 +1,27 @@
+name: 'data_project'
+version: '1.0.0'
+
+profile: 'data'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+
+# Full documentation: https://docs.getdbt.com/docs/configuring-models
+
+models:
+  data_project:
+    bronze:
+      +schema: "bronze"
+    silver:
+      +schema: "silver"
+    gold:
+      +schema: "gold"
